@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Frontend
+node_modules/
+.vite/
+
+# Local environment
+.DS_Store
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+
+# Test artifacts and generated catalogs
+.coverage
+htmlcov/
+*.log
