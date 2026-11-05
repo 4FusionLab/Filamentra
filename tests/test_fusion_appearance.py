@@ -98,7 +98,7 @@ class AdapterTests(unittest.TestCase):
 
     def test_clear_appearance(self):
         report=install_resolved_appearance(self.design,"PETG Clear","#F6F9F7",
-          {"surface_type":"transparent","transmission":0.75,"haze":0.35,"attenuation_distance_mm":75},core=CORE)
+          {"surface_type":"transparent","transmission":0.75,"haze":0.35,"roughness":0.12,"attenuation_distance_mm":75},core=CORE)
         self.assertAlmostEqual(report.appearance.roughness,0.356)
         self.assertAlmostEqual(report.appearance.appearanceProperties.itemById("transparent_distance").value,7.5)
 
