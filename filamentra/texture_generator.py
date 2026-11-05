@@ -118,7 +118,9 @@ def render_to_cache(color: dict, cache_dir: str | Path,
     target = cache / ("filamentra-" + key + ".png")
     if target.is_file():
         return target
-    png = texture_png(color, width, height, **options)
+    png = texture_png(color, width, height,
+                      orientation_degrees=options["orientation_degrees"],
+                      repeats=options["repeats"])
     pending = None
     try:
         with tempfile.NamedTemporaryFile(dir=cache, suffix=".tmp",
