@@ -1,0 +1,2 @@
+# Runtime Python code used by the Fusion integration.
+filamentra/**
