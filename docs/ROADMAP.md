@@ -1,5 +1,7 @@
 # Filamentra — Roadmap
 
+[Русская версия](ROADMAP.ru.md)
+
 > Planning document. The milestones below are targets, not promises or completed functionality.
 
 ## Guiding principles
