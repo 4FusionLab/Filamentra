@@ -18,6 +18,7 @@ class ReleasePackageTests(unittest.TestCase):
     def test_generated_bytecode_and_tool_cache_do_not_change_archive(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
+            (root / "LICENSE").write_text("license text", encoding="utf-8")
             source = root / "filamentra"
             source.mkdir()
             (source / "__init__.py").write_text('"""Package."""\n', encoding="utf-8")
@@ -49,7 +50,7 @@ class ReleasePackageTests(unittest.TestCase):
                 self.assertEqual(archive.read_bytes(), original)
                 with zipfile.ZipFile(archive) as zipped:
                     self.assertEqual(sorted(zipped.namelist()), [
-                        "filamentra/__init__.py", "filamentra/assets/profile.json",
+                        "LICENSE", "filamentra/__init__.py", "filamentra/assets/profile.json",
                         "release.json",
                     ])
                 checksum = archive.with_suffix(".zip.sha256").read_text(encoding="ascii")
