@@ -1,2 +1,4 @@
 # Runtime Python code used by the Fusion integration.
 filamentra/**
+# Packaging changes affect the published ZIP even without runtime source edits.
+scripts/build_release.py
