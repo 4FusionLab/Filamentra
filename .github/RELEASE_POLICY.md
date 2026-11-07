@@ -4,7 +4,7 @@
 
 - A direct push to `main` or a PR merge into `main` is the only normal release event. PR checks, manual CI dispatch and version-tag pushes **do not** initiate publication.
 - Before publishing, compare the entire `github.event.before..GITHUB_SHA` range, including renamed/deleted runtime files. A release is eligible **only** if the pushed commits change a shippable add-in/runtime file, runtime resource, native component, or explicitly designated distribution input.
-- The repository's `.github/release-paths.txt` is the audited allowlist; `scripts/release_changes.py` enforces it. Changes limited to README, guides, design documents, screenshots, tests, CI workflows, repository policy or GitVersion config must not publish a release.
+- The repository's `.github/release-paths.txt` is the audited allowlist; the pinned shared 4FusionLab runtime-changes Action enforces it. Changes limited to README, guides, design documents, screenshots, tests, CI workflows, repository policy or GitVersion config must not publish a release.
 - All required existing CI checks must succeed before publishing. A failed gate means no release, no mutable tag and no replaced assets.
 
 ## Version and distribution
@@ -19,3 +19,7 @@
 Runtime allowlist: `filamentra/**`. Publish a versioned source ZIP plus checksum after Python tests; this is a code distribution, not yet a Fusion add-in installer.
 
 If a push changes no eligible runtime file, CI may run but the GitHub Release job is skipped, even when GitVersion computes a different candidate version.
+
+## Shared release actions
+
+Central GitVersion, runtime impact checking, notes and verified ZIP releases use `4FusionLab/.github` Actions pinned to commit `ad9d60ba4aabc494b4f2c85d6c566a50ca423751`. This repository retains its independently tested Filamentra Python source builder; the ZIP does not constitute a finished Autodesk Fusion installer. Local duplicate release helpers have been removed.
