@@ -7,12 +7,14 @@ on:
       - "scripts/build_release.py"
       - "tests/**"
       - ".github/workflows/texture-tests.yml"
+      - ".github/release-paths.txt"
   pull_request:
     paths:
       - "filamentra/**"
       - "scripts/build_release.py"
       - "tests/**"
       - ".github/workflows/texture-tests.yml"
+      - ".github/release-paths.txt"
   workflow_dispatch:
 
 concurrency:
