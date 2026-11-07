@@ -28,6 +28,12 @@ jobs:
           python-version: "3.12"
       - name: Test offline PNG generator
         run: python -m unittest discover -s tests -v
+      - name: Dry-run release distribution (no publishing)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_release.py --version 0.0.0
+          (cd dist && sha256sum -c Filamentra-0.0.0.zip.sha256)
 
   changes:
     name: Check runtime changes
