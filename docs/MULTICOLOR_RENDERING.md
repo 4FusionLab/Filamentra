@@ -1,5 +1,7 @@
 # Multicolor preview renderer — experimental
 
+[Русская версия](MULTICOLOR_RENDERING.ru.md)
+
 Filamentra includes an **offline PNG generator** for manufacturer RGBA display swatches and a **small experimental Fusion API adapter**. The end-to-end Add-In has not yet been tested in Autodesk Fusion and is not ready for release.
 
 ## Goals and modes

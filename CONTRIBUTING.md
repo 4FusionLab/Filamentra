@@ -1,5 +1,7 @@
 # Contributing to Filamentra
 
+[Русская версия](CONTRIBUTING.ru.md)
+
 Thanks for helping improve Filamentra, a planned filament appearance catalog for Autodesk Fusion from [4FusionLab](https://github.com/4FusionLab).
 
 The project is in pre-development. Please open an [issue](https://github.com/4FusionLab/Filamentra/issues) to discuss significant technical changes or new catalog formats before implementing them.
@@ -46,6 +48,6 @@ For bugs, include Fusion version, operating system, exact steps, actual vs expec
 
 ## License and code contributions
 
-A project license has not yet been selected. Public visibility alone does not grant reuse rights. Before submitting substantial code or assets, coordinate the intended licensing and contribution terms with the maintainers.
+Filamentra is distributed under the [PolyForm Noncommercial License 1.0.0](LICENSE). Commercial use outside its permitted purposes requires a separate agreement with 4FusionLab; third-party components retain their own licenses. Before submitting substantial code or assets, coordinate their licensing and contribution terms with the maintainers.
 
 Filamentra is independent of Autodesk and filament manufacturers.
