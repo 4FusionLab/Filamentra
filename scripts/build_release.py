@@ -14,10 +14,24 @@ def main(version):
     if not re.fullmatch(r"\d+\.\d+\.\d+", version):
         raise SystemExit("Expected GitVersion MajorMinorPatch.")
     source = ROOT / "filamentra"
-    paths = sorted((p for p in source.rglob("*") if p.is_file()),
-                   key=lambda p: p.relative_to(ROOT).as_posix())
-    if not paths or any(p.is_symlink() for p in paths):
-        raise SystemExit("Missing or unsafe Filamentra source.")
+    # The unit tests import Filamentra before packaging, creating local __pycache__.
+    # Do not ship machine-specific bytecode or test/tool caches with the source ZIP.
+    ignored_dirs = {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"}
+    ignored_suffixes = {".pyc", ".pyo"}
+    paths = []
+    for path in source.rglob("*"):
+        if path.is_symlink():
+            raise SystemExit("Unsafe Filamentra source symlink: " + str(path))
+        if not path.is_file():
+            continue
+        relative = path.relative_to(source)
+        if (any(part in ignored_dirs for part in relative.parts)
+                or path.suffix in ignored_suffixes or path.name == ".DS_Store"):
+            continue
+        paths.append(path)
+    paths.sort(key=lambda path: path.relative_to(ROOT).as_posix())
+    if not paths:
+        raise SystemExit("Missing Filamentra source.")
     out = ROOT / "dist"
     out.mkdir(exist_ok=True)
     target = out / f"Filamentra-{version}.zip"
