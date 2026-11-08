@@ -1,5 +1,7 @@
 # Fusion Appearance adapter — transmission and haze
 
+[Русская версия](FUSION_APPEARANCE_ADAPTER.ru.md)
+
 Status: experimental SDK adapter, with offline mock tests only. The package
 does NOT contain a complete Palette or installer UI. No in-Fusion render, save
 or reopen test has been executed.
